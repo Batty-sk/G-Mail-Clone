@@ -2,6 +2,8 @@ const SMTPServer = require('smtp-server').SMTPServer;
 const { simpleParser } = require('mailparser')
 
     const mailServer = new SMTPServer({
+        allowInsecureAuth:true,
+        authOptional:true,
         onConnect(session, cb){
             console.log('session ',session)
             cb() // if we're passing a error object in it it means we are rejecting the request.
